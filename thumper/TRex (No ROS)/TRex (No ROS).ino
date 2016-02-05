@@ -13,6 +13,7 @@ int Rightmode = 0;                                     // mode to control direct
 byte lmbrake, rmbrake;                                 // if left or right brake>0 then engage electronic braking for left motor or riht motor
 int lmspeed, rmspeed;                                  // PWM or speed of the motors, goes from 0 to 255
 
+// Setup pins and serial loop
 void setup()
 {
   
@@ -26,9 +27,10 @@ void setup()
   Serial.begin(9600);      
 }
 
+// This loop will run constantly
 void loop()
 {
-  
+  // If serial stream is available, enter this statement
   if (Serial.available() > 0)                         // if characters are available in the stream
   {
     int command = Serial.read();                      // read the first character
